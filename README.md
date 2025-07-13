@@ -1,24 +1,28 @@
-# Varaliaos
-Modular AI operating system using the M3 Memory Model, Sub-AI personas, and agentic memory.
-# VaraliaOS
+# ValariaOS
 
-**Modular AI Operating System**  
-Powered by the M3 Memory Model, Sub-AI Personas, Hybrid Vector Memory, and Agentic AI processes like RAG.
+Modular AI operating system powered by:
+- 🧠 **M3 Memory Model** — Moments → Modules → Meta-Arcs
+- 🤖 **Sub-AI Personas** — Dynamic agents like Forge, Scout, Thumper
+- 🔁 **Hybrid Memory Scoring** — Cosine + time-decay for relevance
+- 🔌 **FastAPI + Supabase** — Backend + RLS audit-ready DB
+- 🧠 **Agentic AI Ready** — (RAG, Cursor, Claude/GPT interoperability)
 
----
+## 🔧 Core Features
+- Memory logging with embedding + timestamp
+- Hybrid score: `0.7*cosine + 0.3*exp(-age/24h)`
+- WebSocket & mobile fallback for real-time chat
+- Persona-based output styling
+- Edge function for nightly Moment → Module consolidation
 
-## 🧠 Core Features
+## 🚀 Roadmap
+- Meta-Arc miner (in progress)
+- External data ingestion module (planned)
+- Notification system (post-MVP)
 
-- **M3 Memory System**: Moments → Modules → Meta-Arcs
-- **Sub-AI Persona Layer**: Each persona (Nova, Thumper, etc.) has scoped memory and style
-- **Hybrid Vector Search**: Cosine similarity + temporal decay scoring
-- **Semantic Memory Chat**: Embedded prompt generator from real memories
-- **FastAPI Backend**: `/memory`, `/chat`, `/search` endpoints
-- **Postgres + pgvector**: Durable vector store with memory embedding
-- **Thread Management**: Session continuity with `conversation_thread`
-- **Audit Log**: All actions tracked (`audit_log`)
-- **Real-Time WebSocket**: `/ws/{user}` + mobile AsyncStorage fallback
+## 📁 File Structure
+See `valariaos-backend-v0.4.zip` for full repo code.
 
----
-
-## 📦 Repo Contents
+## 👨‍🔬 Contributors
+- **Kirk Hess** — Creator / Vision
+- **Matt** — Dev sync + KORA integration
+- **Gary Alan Reid** — Technical Advisor, GitHub setup, RAG mentor
