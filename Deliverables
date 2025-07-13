@@ -1,0 +1,19 @@
+valariaos/
+├── app/
+│   ├── main.py
+│   ├── scoring.py
+│   ├── memory.py
+│   ├── prompt_builder.py
+│   ├── websocket.py
+├── db/
+│   ├── init.sql
+│   ├── models.py
+├── services/
+│   ├── audit_log.py
+│   ├── subai_registry.py
+├── tests/
+│   ├── test_hybrid_score.py
+│   ├── test_prompt_rank.py
+├── .gitignore
+├── README.md
+├── requirements.txt
