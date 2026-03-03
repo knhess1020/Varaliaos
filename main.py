@@ -2,6 +2,9 @@ import os, uuid, math, time
 from datetime import datetime
 from typing import List, Optional
 
+from dotenv import load_dotenv
+load_dotenv()
+
 import httpx
 from fastapi import FastAPI, HTTPException, WebSocket, WebSocketDisconnect
 from pydantic import BaseModel, Field
@@ -35,7 +38,7 @@ class SearchIn(BaseModel):
 class ChatIn(BaseModel):
     user_id: str
     message: str
-    persona: Optional[str] = "nova"
+    persona: Optional[str] = "Nova"
     thread_id: Optional[str] = None
 
 class ChatOut(BaseModel):
@@ -97,16 +100,15 @@ async def search(req: SearchIn):
 
 @app.post("/chat", response_model=ChatOut)
 async def chat(req: ChatIn):
-    persona = Persona.get(req.persona or "nova")
+    persona_name = req.persona or "Nova"
     thread_id = req.thread_id or str(uuid.uuid4())
     turn = await increment_turn(req.user_id, thread_id)
 
     prompt_data = await build_prompt(
-        user_id=req.user_id,
-        message=req.message,
-        persona=persona,
+        uid=req.user_id,
+        user_input=req.message,
+        persona_name=persona_name,
         thread_id=thread_id,
-        turn=turn,
     )
 
     reply_text = await chat_completion(prompt_data["messages"])

@@ -19,7 +19,7 @@ services:
 
   api:
     build: .
-    command: uvicorn main:app --host 0.0.0.0 --port 8000 --reload
+    command: uvicorn main:app --host 0.0.0.0 --port 8000 --workers 1
     environment:
       DATABASE_URL: postgresql://varalia:varalia@db:5432/varaliaos
       OPENAI_API_KEY: ${OPENAI_API_KEY}
