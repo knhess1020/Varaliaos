@@ -1,0 +1,9 @@
+fastapi
+uvicorn[standard]
+httpx
+asyncpg
+python-dotenv
+openai>=1.0
+pgvector
+pytest
+pytest-asyncio
