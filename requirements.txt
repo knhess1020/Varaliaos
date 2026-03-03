@@ -3,5 +3,7 @@ uvicorn[standard]
 httpx
 asyncpg
 python-dotenv
-openai
+openai>=1.0
 pgvector
+pytest
+pytest-asyncio
