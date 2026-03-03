@@ -3,7 +3,7 @@ from typing import List
 from scoring import hybrid_score
 from db import search_memories
 from subai import Persona
-from main import get_embedding
+from llm import get_embedding
 
 async def build_prompt(uid: str, user_input: str, persona_name: str,
                        thread_id: str, top_k: int = 8):
@@ -16,7 +16,7 @@ async def build_prompt(uid: str, user_input: str, persona_name: str,
     mems = ranked[:top_k]
     snippets = []
     for m in mems:
-        txt = m['content'][:197]+'…' if len(m['content'])>200 else m['content']
+        txt = m['content'][:197]+'...' if len(m['content'])>200 else m['content']
         tag = m['type'].lower()
         snippets.append(f"- ({tag}) {txt}")
     ctx = "\n".join(snippets) if snippets else "None"
