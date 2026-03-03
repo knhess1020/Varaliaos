@@ -1,0 +1,17 @@
+version: "3.9"
+services:
+  db:
+    image: ankane/pgvector:latest
+    environment:
+      POSTGRES_USER: nova
+      POSTGRES_PASSWORD: nova
+      POSTGRES_DB: nova
+    ports: ["5432:5432"]
+  api:
+    build: .
+    environment:
+      DATABASE_URL: postgres://nova:nova@db:5432/nova
+      OPENAI_API_KEY: ${OPENAI_API_KEY}
+      CHAT_MODEL: gpt-4o-mini
+    depends_on: [db]
+    ports: ["8000:8000"]
